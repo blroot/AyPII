@@ -136,4 +136,9 @@ public class GuiaCeroTest {
 		Assert.assertEquals("hl cm sts", GuiaCero.consonantes("hola como estas"));
 	}
 	
+	@Test
+	public void FrecuenciasTest() {
+		GuiaCero.frecuencias("hola como estas");
+	}
+	
 }

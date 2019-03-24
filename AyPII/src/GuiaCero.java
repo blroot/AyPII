@@ -147,5 +147,23 @@ public class GuiaCero {
 		
 		return frase;
 	}
+	
+	public static void frecuencias(String cadena) {
+		
+		char[] abecedario = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z'};
+		
+		for (int i = 0; i < abecedario.length; i++) {
+			int ocurrencias = 0;
+			for (int j = 0; j < cadena.length(); j++) {			
+				if (abecedario[i] == cadena.charAt(j)) {
+					ocurrencias++;
+				}						
+			}
+			
+			if (ocurrencias != 0) {
+				System.out.print(abecedario[i] + ": " + ocurrencias + "\n");
+			}
+		}
+	}
 
 }
