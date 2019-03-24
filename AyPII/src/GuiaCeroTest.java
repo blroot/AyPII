@@ -118,4 +118,22 @@ public class GuiaCeroTest {
 		}
 	}
 	
+	@Test
+	public void IntercalarVectoresDeMayorAmenor() {
+		int[] a = {5,4,3,2,0};
+		int[] b = {10,1,0};
+		
+		int[] vectorObtenido = GuiaCero.intercalarArreglosDeMayorAMenor(a, b);
+		int[] vectorEsperado = {10,5,4,3,2,1,0,0};
+		
+		for (int i = 0; i < vectorObtenido.length; i++) {
+			Assert.assertEquals(vectorEsperado[i], vectorObtenido[i]);
+		}
+	}
+	
+	@Test
+	public void EliminarVocalesTest() {
+		Assert.assertEquals("hl cm sts", GuiaCero.consonantes("hola como estas"));
+	}
+	
 }

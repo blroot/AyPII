@@ -43,7 +43,7 @@ public class GuiaCero {
 		boolean estaOrdenado = true;
 		
 		for (int i = 1; i < arreglo.length; i++) {
-			if (arreglo[i-1] <= arreglo[i]) {
+			if (arreglo[i-1] < arreglo[i]) {
 				estaOrdenado = false;
 			}
 		}
@@ -87,8 +87,65 @@ public class GuiaCero {
 		
 	}
 	
-	//public static int[] intercalarArreglosDeMayorAMenor(int[] a1, int[] a2) {
-	// 
-	//}
+	public static int[] intercalarArreglosDeMayorAMenor(int[] a1, int[] a2) {
+	
+		if (!GuiaCero.arrayEstaOrdenadoDeMayorAMenor(a1)) {
+			throw new Error("a1 no esta ordenado de mayor a menor");
+		}
+		
+		if (!GuiaCero.arrayEstaOrdenadoDeMayorAMenor(a2)) {
+			throw new Error("a2 no esta ordenado de mayor a menor");
+		}
+		
+		int tamanoResultado = a1.length + a2.length;
+		int[] resultado = new int[tamanoResultado];
+		int posicionAModificar = 0;
+		
+		for (int i = 0; i < a1.length; i++) {
+			resultado[posicionAModificar] = a1[i];
+			posicionAModificar++;
+		}
+		
+		for (int i = 0; i < a2.length; i++) {
+			resultado[posicionAModificar] = a2[i];
+			posicionAModificar++;
+		}
+		
+		while (!GuiaCero.arrayEstaOrdenadoDeMayorAMenor(resultado)) {
+			for (int i = 1; i < resultado.length; i++) {
+				if (resultado[i-1] < resultado[i]) {
+					int valorTemporal = resultado[i];
+					resultado[i] = resultado[i-1];
+					resultado[i-1] = valorTemporal;
+				}
+			}
+		}
+		
+		return resultado;
+		
+	}
+	
+	public static String consonantes(String cadena) {
+		String frase = new String();
+		char[] vocales = "aeiou".toCharArray();
+		
+		for (int i = 0; i < cadena.length(); i++) {
+			
+			boolean esVocal = false;
+			
+			for (int j = 0; j < vocales.length && !esVocal; j++) {
+				if (cadena.charAt(i) == vocales[j]) {
+					esVocal = true;
+				}
+			}
+			
+			if (!esVocal) {
+				frase = frase + cadena.charAt(i);
+			}
+			
+		}
+		
+		return frase;
+	}
 
 }
