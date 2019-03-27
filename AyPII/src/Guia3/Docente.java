@@ -37,14 +37,5 @@ public class Docente extends Integrante implements Remunerado, Comparable<Integr
 		
 		return sueldoBruto;
 	}
-	
-	@Override
-	public int compareTo(Remunerado otro) {
-		if (this.calcularSueldo() > otro.calcularSueldo()) {
-			return -1;
-		} else if (this.calcularSueldo() < otro.calcularSueldo()) {
-			return 1;
-		} else return 0;
-	}
 
 }

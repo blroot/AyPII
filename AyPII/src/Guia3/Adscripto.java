@@ -29,13 +29,4 @@ public class Adscripto extends Alumno implements Remunerado {
 		return this.sueldoBasico*this.cantidadDeMaterias;
 	}
 
-	@Override
-	public int compareTo(Remunerado otro) {
-		if (this.calcularSueldo() > otro.calcularSueldo()) {
-			return -1;
-		} else if (this.calcularSueldo() < otro.calcularSueldo()) {
-			return 1;
-		} else return 0;
-	}
-
 }

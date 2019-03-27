@@ -6,7 +6,11 @@ public class ComparadorDeDocentes implements Comparator<Remunerado> {
 
 	@Override
 	public int compare(Remunerado o1, Remunerado o2) {
-		return o1.compareTo(o2);
+		if (o1.calcularSueldo() > o2.calcularSueldo()) {
+			return -1;
+		} else if (o1.calcularSueldo() < o2.calcularSueldo()) {
+			return 1;
+		} else return 0;
 	}
 	
 }
