@@ -1,6 +1,6 @@
 package Guia3;
 
-public class Integrante implements Comparable<Integrante> {
+public abstract class Integrante implements Comparable<Integrante> {
 	
 	protected String nombre;
 	protected String apellido;
