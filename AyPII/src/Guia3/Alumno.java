@@ -1,7 +1,5 @@
 package Guia3;
 
-import java.util.Comparator;
-
 public class Alumno extends Integrante {
 	
 	protected int legajo;
