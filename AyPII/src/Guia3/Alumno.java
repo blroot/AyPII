@@ -2,8 +2,8 @@ package Guia3;
 
 public class Alumno extends Integrante {
 	
-	protected int legajo;
-	protected double promedioGeneral;
+	private int legajo;
+	private double promedioGeneral;
 	
 	Alumno(String nombre, String apellido, String dni, String direccion, String telefono, 
 		   int fechaDeNacimientoDia, int fechaDenacimientoMes, int fechaDeNacimientoAnio,
@@ -20,12 +20,8 @@ public class Alumno extends Integrante {
 		return super.toString() + " Promedio general: " + this.promedioGeneral;
 	}
 
-	public int compareTo(Alumno otro) {
-		if (this.promedioGeneral < otro.promedioGeneral) {
-			return 1;
-		} else if (this.promedioGeneral > otro.promedioGeneral) {
-			return -1;
-		} else return 0;
+	public double getPromedioGeneral() {
+		return this.promedioGeneral;
 	}
 	
 }

@@ -2,15 +2,15 @@ package Guia3;
 
 public abstract class Integrante implements Comparable<Integrante> {
 	
-	protected String nombre;
-	protected String apellido;
-	protected String dni;
-	protected String direccion;
-	protected String telefono;
-	protected String nombreCompleto;
-	protected int fechaDeNacimientoDia;
-	protected int fechaDeNacimientoMes;
-	protected int fechaDeNacimientoAnio;
+	private String nombre;
+	private String apellido;
+	private String dni;
+	private String direccion;
+	private String telefono;
+	private String nombreCompleto;
+	private int fechaDeNacimientoDia;
+	private int fechaDeNacimientoMes;
+	private int fechaDeNacimientoAnio;
 	
 	public Integrante(String nombre, String apellido, String dni, String direccion, String telefono, 
 					  int fechaDeNacimientoDia, int fechaDenacimientoMes, int fechaDeNacimientoAnio) {

@@ -52,7 +52,7 @@ public class integrantesComputacion {
 		alumnos[5] = new Adscripto("Abe", "Simpson", "11890345", "callefalsa 123", "45673333", 
 				8, 12, 1976, 20560, 7.7, 2000.0, 3);
 		
-		Arrays.sort(alumnos, new ComparadorDeAlumnos());
+		Arrays.sort(alumnos, new ComparadorDeAlumnosPorPromedio(false));
 		
 		for (int i = 0; i < alumnos.length; i++) {
 			System.out.println(alumnos[i]);
@@ -75,7 +75,7 @@ public class integrantesComputacion {
 		docentes[5] = new Docente("Edna", "Clavados", "11890345", "callefalsa 123", "45673333", 
 				8, 12, 1976, 20, 32500.0);
 		
-		Arrays.sort(docentes, new ComparadorDeDocentes());
+		Arrays.sort(docentes, new ComparadorDeRemuneradosPorSueldo(false));
 		
 		for (int i = 0; i < docentes.length; i++) {
 			System.out.println(docentes[i]);
