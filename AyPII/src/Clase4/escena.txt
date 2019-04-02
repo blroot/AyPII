@@ -1,0 +1,5 @@
+circulo: 3
+cuadrado: 4
+rectangulo: 5,7
+elipse: 2,9
+triangulo: 1,1,2
