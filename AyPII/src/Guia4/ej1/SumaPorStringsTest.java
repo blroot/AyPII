@@ -1,4 +1,4 @@
-package Guia4;
+package Guia4.ej1;
 
 import org.junit.Test;
 
