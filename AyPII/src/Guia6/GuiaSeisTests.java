@@ -46,4 +46,18 @@ public class GuiaSeisTests {
 		}
 		
 	}
+	
+	@Test
+	public void testDebeHaberConsistencia() {
+		String cadenaDeTags = "[()]{}{[()()]()}";
+		
+		Assert.assertTrue(GuiaSeis.estaBienBalanceado(cadenaDeTags));
+	}
+	
+	@Test
+	public void testNoDebeHaberConsistencia() {
+		String cadenaDeTags = "[(])";
+		
+		Assert.assertFalse(GuiaSeis.estaBienBalanceado(cadenaDeTags));
+	}
 }
