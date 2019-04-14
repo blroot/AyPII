@@ -1,7 +1,11 @@
 package Guia6;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Stack;
+
+import javax.crypto.spec.PSource;
 
 class GuiaSeis {
 	
@@ -74,6 +78,52 @@ class GuiaSeis {
 		}
 		
 		return hayConsistencia;
+		
+	}
+	
+	// Ejs listas
+	
+	public static ArrayList<Integer> combinarListasDeEnteros(ArrayList<Integer> lista1, ArrayList<Integer> lista2) {
+		ArrayList<Integer> listaResultante = new ArrayList<Integer>();
+		
+		Iterator<Integer> iteradorLista1 = lista1.iterator();
+		Iterator<Integer> iteradorLista2 = lista2.iterator();
+		
+		while (iteradorLista1.hasNext()) {
+			listaResultante.add(iteradorLista1.next());
+		}
+		while (iteradorLista2.hasNext()) {
+			listaResultante.add(iteradorLista2.next());
+		}
+		
+		Collections.sort(listaResultante);
+				
+		return listaResultante;
+	}
+	
+	public static ArrayList<Integer> eliminarEnterosDuplicados(ArrayList<Integer> lista) {
+		ArrayList<Integer> listaResultante = new ArrayList<Integer>();
+		Iterator<Integer> iterador = lista.listIterator(0);
+		
+		// Llevo una posicion para llevar el iterador a la posicion necesaria
+		int posicion = 0;
+		while (iterador.hasNext()) {
+			Integer enteroActual = iterador.next();
+			// Se agrega el entero a la lista y se salta una posicion
+			listaResultante.add(enteroActual);
+			posicion++;
+			
+			// Para comparar comienzo desde el siguiente entero
+			iterador = lista.listIterator(posicion);
+			while (iterador.hasNext()) {
+				Integer otroEntero = iterador.next();
+				if (enteroActual.equals(otroEntero)) {
+					iterador.remove();
+				}
+			}
+		}
+		
+		return listaResultante;
 		
 	}
 

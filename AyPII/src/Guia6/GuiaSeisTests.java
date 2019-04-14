@@ -1,5 +1,6 @@
 package Guia6;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.junit.Test;
@@ -60,4 +61,55 @@ public class GuiaSeisTests {
 		
 		Assert.assertFalse(GuiaSeis.estaBienBalanceado(cadenaDeTags));
 	}
+	
+	@Test
+	public void testDeDosListasObtengoListaOrdenada() {
+		ArrayList<Integer> lista1 = new ArrayList<Integer>();
+		ArrayList<Integer> lista2 = new ArrayList<Integer>();
+		
+		lista1.add(1);
+		lista1.add(3);
+		lista1.add(5);
+		
+		lista2.add(2);
+		lista2.add(4);
+		lista2.add(6);
+		
+		Integer[] arregloDePrueba = {1,2,3,4,5,6};
+		
+		ArrayList<Integer> listaResultante = GuiaSeis.combinarListasDeEnteros(lista1, lista2);
+		
+		int pos = 0;
+		Iterator<Integer> iterador = listaResultante.iterator();
+		
+		while (iterador.hasNext()) {
+			Assert.assertEquals(arregloDePrueba[pos], iterador.next());
+			pos++;
+		}
+	}
+	
+	@Test
+	public void testDeDosListasDeEnterosObtengoUnaListaSinRepetidos() {
+		ArrayList<Integer> lista = new ArrayList<Integer>();
+		
+		lista.add(1);
+		lista.add(3);
+		lista.add(1);
+		lista.add(2);
+		lista.add(4);
+		lista.add(2);
+		
+		Integer[] arregloDePrueba = {1,3,2,4};
+		
+		ArrayList<Integer> listaResultante = GuiaSeis.eliminarEnterosDuplicados(lista);
+		
+		int pos = 0;
+		Iterator<Integer> iterador = listaResultante.iterator();
+		
+		while (iterador.hasNext()) {
+			Assert.assertEquals(arregloDePrueba[pos], iterador.next());
+			pos++;
+		}
+	}
+	
 }
