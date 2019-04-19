@@ -39,5 +39,31 @@ public class GuiaOchoTest {
 		Assert.assertEquals(1, (int) pila.pop());
 		Assert.assertEquals(6, (int) pila.pop());
 	}
+	
+	@Test
+	public void testMcdEntre45Y25Es5() {
+		Assert.assertEquals(5, GuiaOcho.mcdPorEuclides(45, 25));
+	}
+	
+	@Test
+	public void test5Por4Es20() {
+		Assert.assertEquals(20, GuiaOcho.multiplicacionRecursiva(5, 4));
+	}
+	
+	@Test
+	public void test9Por9Es81() {
+		Assert.assertEquals(81, GuiaOcho.multiplicacionRecursiva(9, 9));
+	}
+	
+	@Test
+	public void testSumaDeVector() {
+		int[] arreglo = {1,5,6,7,8};
+		Assert.assertEquals(27, GuiaOcho.sumaDeElementosDeVector(arreglo));
+	}
+	
+	@Test
+	public void test10EnBinarioEs1010() {
+		Assert.assertEquals("1010", GuiaOcho.decimalABinario(10));
+	}
 
 }
