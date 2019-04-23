@@ -1,5 +1,6 @@
 package Guia8;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class GuiaOcho {
@@ -103,9 +104,7 @@ public class GuiaOcho {
 		}
 		
 		int posicionMedio = (fin+inicio)/2;
-		
-		System.out.println(posicionMedio);
-		
+				
 		if (valor < arreglo[posicionMedio]) {
 			return busquedaBinariaRecursiva(arreglo, valor, inicio, posicionMedio-1);
 		} else if (valor > arreglo[posicionMedio]) {
@@ -114,6 +113,47 @@ public class GuiaOcho {
 		
 		return true;
 		
+	}
+	
+	public static int[] mergeSort(int[] arreglo) {
+		return mergeSortDivisionYConquista(arreglo);
+	}
+	
+	private static int[] mergeSortDivisionYConquista(int[] arreglo) {	
+		// Caso base: si tiene un solo elemento está ordenado
+		if (arreglo.length <= 1) {
+			return null;
+		}
+		
+		int medio = arreglo.length/2;
+		int[] arrayIzquierda = Arrays.copyOfRange(arreglo, 0, medio);
+		int[] arrayDerecha = Arrays.copyOfRange(arreglo, medio, arreglo.length);
+		
+		// Izquierda
+		mergeSortDivisionYConquista(arrayIzquierda);
+		// Derecha
+		mergeSortDivisionYConquista(arrayDerecha);
+		merge(arrayIzquierda, arrayDerecha, arreglo);
+		
+		return arreglo;
+	}
+
+	private static void merge(int[] arrayIzquierda, int[] arrayDerecha, int[] arreglo) {
+		int i = 0, j = 0, k = 0;
+	    while (i < arrayIzquierda.length && j < arrayDerecha.length) {
+	        if (arrayIzquierda[i] <= arrayDerecha[j]) {
+	        	arreglo[k++] = arrayIzquierda[i++];
+	        }
+	        else {
+	        	arreglo[k++] = arrayDerecha[j++];
+	        }
+	    }
+	    while (i < arrayIzquierda.length) {
+	    	arreglo[k++] = arrayIzquierda[i++];
+	    }
+	    while (j <  arrayDerecha.length) {
+	    	arreglo[k++] = arrayDerecha[j++];
+	    }
 	}
 	
 }
