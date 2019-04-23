@@ -65,5 +65,29 @@ public class GuiaOchoTest {
 	public void test10EnBinarioEs1010() {
 		Assert.assertEquals("1010", GuiaOcho.decimalABinario(10));
 	}
+	/*
+	@Test
+	public void testBusquedaBinariaDos() {
+		int[] arreglo = {1,2,3,4,5,6,7,8};
+		Assert.assertTrue(GuiaOcho.busquedaBinaria(arreglo, 2));
+	}*/
+	
+	@Test
+	public void testBusquedaBinariaSeis() {
+		int[] arreglo = {1,2,3,4,5,6,7,8};
+		Assert.assertTrue(GuiaOcho.busquedaBinaria(arreglo, 6));
+	}
+	/*
+	@Test
+	public void testBusquedaBinariaCuatro() {
+		int[] arreglo = {1,2,3,4,5,6,7,8};
+		Assert.assertTrue(GuiaOcho.busquedaBinaria(arreglo, 4));
+	}
+	
+	@Test
+	public void testBusquedaBinariaCero() {
+		int[] arreglo = {1,2,3,4,5,6,7,8};
+		Assert.assertFalse(GuiaOcho.busquedaBinaria(arreglo, 0));
+	}*/
 
 }

@@ -91,4 +91,29 @@ public class GuiaOcho {
 		return decimalABinario(a / 2) + Integer.toString((a % 2));
 		
 	}
+	
+	public static boolean busquedaBinaria(int[] arreglo, int valor) {
+		return busquedaBinariaRecursiva(arreglo, valor, 0, arreglo.length-1);
+	}
+	
+	private static boolean busquedaBinariaRecursiva(int[] arreglo, int valor, int inicio, int fin) {
+		
+		if (inicio >= fin) {
+			return false;
+		}
+		
+		int posicionMedio = (fin+inicio)/2;
+		
+		System.out.println(posicionMedio);
+		
+		if (valor < arreglo[posicionMedio]) {
+			return busquedaBinariaRecursiva(arreglo, valor, inicio, posicionMedio-1);
+		} else if (valor > arreglo[posicionMedio]) {
+			return busquedaBinariaRecursiva(arreglo, valor, posicionMedio+1, fin);
+		}
+		
+		return true;
+		
+	}
+	
 }
