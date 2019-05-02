@@ -1,5 +1,6 @@
 package Guia8;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class GuiaOcho {
@@ -91,4 +92,68 @@ public class GuiaOcho {
 		return decimalABinario(a / 2) + Integer.toString((a % 2));
 		
 	}
+	
+	public static boolean busquedaBinaria(int[] arreglo, int valor) {
+		return busquedaBinariaRecursiva(arreglo, valor, 0, arreglo.length-1);
+	}
+	
+	private static boolean busquedaBinariaRecursiva(int[] arreglo, int valor, int inicio, int fin) {
+		
+		if (inicio >= fin) {
+			return false;
+		}
+		
+		int posicionMedio = (fin+inicio)/2;
+				
+		if (valor < arreglo[posicionMedio]) {
+			return busquedaBinariaRecursiva(arreglo, valor, inicio, posicionMedio-1);
+		} else if (valor > arreglo[posicionMedio]) {
+			return busquedaBinariaRecursiva(arreglo, valor, posicionMedio+1, fin);
+		}
+		
+		return true;
+		
+	}
+	
+	public static int[] mergeSort(int[] arreglo) {
+		return mergeSortDivisionYConquista(arreglo);
+	}
+	
+	private static int[] mergeSortDivisionYConquista(int[] arreglo) {	
+		// Caso base: si tiene un solo elemento está ordenado
+		if (arreglo.length <= 1) {
+			return null;
+		}
+		
+		int medio = arreglo.length/2;
+		int[] arrayIzquierda = Arrays.copyOfRange(arreglo, 0, medio);
+		int[] arrayDerecha = Arrays.copyOfRange(arreglo, medio, arreglo.length);
+		
+		// Izquierda
+		mergeSortDivisionYConquista(arrayIzquierda);
+		// Derecha
+		mergeSortDivisionYConquista(arrayDerecha);
+		merge(arrayIzquierda, arrayDerecha, arreglo);
+		
+		return arreglo;
+	}
+
+	private static void merge(int[] arrayIzquierda, int[] arrayDerecha, int[] arreglo) {
+		int i = 0, j = 0, k = 0;
+	    while (i < arrayIzquierda.length && j < arrayDerecha.length) {
+	        if (arrayIzquierda[i] <= arrayDerecha[j]) {
+	        	arreglo[k++] = arrayIzquierda[i++];
+	        }
+	        else {
+	        	arreglo[k++] = arrayDerecha[j++];
+	        }
+	    }
+	    while (i < arrayIzquierda.length) {
+	    	arreglo[k++] = arrayIzquierda[i++];
+	    }
+	    while (j <  arrayDerecha.length) {
+	    	arreglo[k++] = arrayDerecha[j++];
+	    }
+	}
+	
 }

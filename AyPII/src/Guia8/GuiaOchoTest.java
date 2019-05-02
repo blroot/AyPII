@@ -1,5 +1,7 @@
 package Guia8;
 
+import static org.junit.Assert.assertArrayEquals;
+
 import java.util.Stack;
 
 import org.junit.Test;
@@ -64,6 +66,37 @@ public class GuiaOchoTest {
 	@Test
 	public void test10EnBinarioEs1010() {
 		Assert.assertEquals("1010", GuiaOcho.decimalABinario(10));
+	}
+	
+	@Test
+	public void testBusquedaBinariaDos() {
+		int[] arreglo = {1,2,3,4,5,6,7,8};
+		Assert.assertTrue(GuiaOcho.busquedaBinaria(arreglo, 2));
+	}
+	
+	@Test
+	public void testBusquedaBinariaSeis() {
+		int[] arreglo = {1,2,3,4,5,6,7,8};
+		Assert.assertTrue(GuiaOcho.busquedaBinaria(arreglo, 6));
+	}
+	
+	@Test
+	public void testBusquedaBinariaCuatro() {
+		int[] arreglo = {1,2,3,4,5,6,7,8};
+		Assert.assertTrue(GuiaOcho.busquedaBinaria(arreglo, 4));
+	}
+	
+	@Test
+	public void testBusquedaBinariaCero() {
+		int[] arreglo = {1,2,3,4,5,6,7,8};
+		Assert.assertFalse(GuiaOcho.busquedaBinaria(arreglo, 0));
+	}
+	
+	@Test
+	public void testMergeSort() {
+		int[] arreglo = {1,5,8,4,0,6,1,20};
+		int[] arregloEsperado = {0,1,1,4,5,6,8,20};
+		assertArrayEquals(arregloEsperado, GuiaOcho.mergeSort(arreglo));
 	}
 
 }
