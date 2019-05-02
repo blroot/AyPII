@@ -37,7 +37,10 @@ public class BinaryTreeDemo {
 			System.out.println("Mínimo fué removido correctamente");
 		}
 		
-		
+		arbolBinario.makeEmpty();
+		if (arbolBinario.root == null) {
+			System.out.println("El arbol fué vaciado correctamente");
+		}
 		
 
 	}
