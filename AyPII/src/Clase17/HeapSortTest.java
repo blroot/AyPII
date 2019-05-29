@@ -9,7 +9,7 @@ public class HeapSortTest {
 	@Test
 	public void testOrdenarArrayDeEnteros() {
 		Integer[] arrayDeEnteros = {1, 5, 0, -2, 8, 6};
-		Integer[] arrayOrdenado = {8, 6, 5, 1, 0, -2};
+		Integer[] arrayOrdenado = {-2, 0, 1, 5, 6, 8};
 		
 		HeapSort.heapsort(arrayDeEnteros);
 		
