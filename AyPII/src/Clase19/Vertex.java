@@ -32,6 +32,16 @@ public class Vertex {
 		return this.dist;
 	}
 	
+	public int getPrevDist() {
+		if (this.prev == null) {
+			return 0;
+		} else return this.prev.getDist();
+	}
+	
+	public Vertex getPrev() {
+		return this.prev;
+	}
+	
 	public LinkedList<Edge> getAdj() {
 		return this.adj;
 	}

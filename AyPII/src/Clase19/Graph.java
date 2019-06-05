@@ -13,9 +13,9 @@ public class Graph {
 	
 	public void addEdge(String source, String dest) {
 		// Consulto el vertice origen
-		Vertex sourceVertex = this.vertexMap.get(source);
+		Vertex sourceVertex = this.getVertex(source);
 		// Consulto el vertice destino
-		Vertex destVertex = this.vertexMap.get(dest);
+		Vertex destVertex = this.getVertex(dest);
 		// Construyo una nueva arista con vertice destino
 		Edge newEdge = new Edge(destVertex);
 		
@@ -37,19 +37,16 @@ public class Graph {
 	public void breadthFirstSearch(String start) {
 		Queue<Vertex> q = new Queue<Vertex>();
 		Vertex startVertex = this.getVertex(start);
-		int dist = 0;
-		startVertex.setDist(dist);
-		
+		startVertex.setDist(0);
 		
 		// Encolo
 		q.enqueue(startVertex);
 		
 		while(!q.isEmpty()) { 
 			Vertex v = q.dequeue();
-			dist++;
 			for (Edge edge: v.getAdj()) {
 				if (edge.getDest().getDist() == Integer.MAX_VALUE) {
-					edge.getDest().setDist(dist);
+					edge.getDest().setDist(edge.getDest().getPrevDist() + 1);
 					q.enqueue(edge.getDest());
 				}
 			}
