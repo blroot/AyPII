@@ -46,7 +46,7 @@ public class Graph {
 			Vertex v = q.dequeue();
 			for (Edge edge: v.getAdj()) {
 				if (edge.getDest().getDist() == Integer.MAX_VALUE) {
-					edge.getDest().setDist(edge.getDest().getPrevDist() + 1);
+					edge.getDest().setDist(v.getDist() + 1);
 					q.enqueue(edge.getDest());
 				}
 			}
