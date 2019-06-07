@@ -89,8 +89,9 @@ public class BinaryHeap <T extends Comparable<? super T>> {
 	}
 	public void insert (T x) throws BinaryHeapOverflowException {
 		if (this.isFull()) throw new BinaryHeapOverflowException();
-		this.data[size++] = x;
-		this.upHeap(size);
+		int pos = size++;
+		this.data[pos] = x;
+		this.upHeap(pos);
 	}
 	//public T find() throws BinaryHeapEmptyException {
 		
@@ -98,7 +99,9 @@ public class BinaryHeap <T extends Comparable<? super T>> {
 	public T delete() throws BinaryHeapEmptyException {
 		T top = this.data[0];
 		if (!this.isEmpty()) {
+			this.data[0] = this.data[size-1];
 			this.downHeap(0);
+			this.size--;
 		} else {
 			throw new BinaryHeapEmptyException();
 		}
